@@ -1,0 +1,9 @@
+.verzender input {
+	height: 100px;
+	width: 500px;
+}
+
+.verzender .send {
+	height: 50px;
+	width: 50px;
+}
