@@ -1,9 +1,5 @@
-<?php
 
-	include 'config/config.php';
-	include 'require/chatlog.php';
-	
-?>
+
 
 
 <!DOCTYPE html>
@@ -17,9 +13,9 @@
 							setInterval(function() {
 						$.ajax({
 							type: "GET",
-							url: "require/foreach.php",
+							url: "page/index.php",
 							success: function(result) {
-						$('.chatbox_total').val(result);
+						$('.chatbox').html(result);
 						}
 				});
 			}, 100);
@@ -34,10 +30,10 @@
 	<body>
 		<p>HALLO</p>
 		<form method="get" action="index.php" class="chatbox">
-			<input type="text" name="chatbox" class="chatbox_total" disabled >
+			<input type="text" name="chatbox" class="chatbox_total" value="<?php foreach($rows as $row) {echo $row["id"] . "|" . $row["tekst"]; }?>" disabled >
 		</form>
 
-		<form action="require/add.php" method="post" class="verzender">
+		<form action="index.php" method="post" class="verzender">
 			<p>Message:</p>
 		  <input type="text" name="message" >
 		  <input type="submit" name="enter" id="enter" value="Enter" class="send" >
